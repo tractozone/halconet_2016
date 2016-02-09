@@ -554,6 +554,11 @@ function VerificaDescripcionArticulo(Codigo) {
             Mensaje("Debe especificar un código de articulo", "HalcoNET", "Aceptar");
         }
     }
+    else {
+        if (Publi == 1) {
+            $.mobile.loading("hide");
+        }
+    }
 }
 
 
