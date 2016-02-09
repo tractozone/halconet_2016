@@ -1,7 +1,7 @@
 ﻿var CodArt = []; var NomArt = [];
 //var urlDOM = ""; var Publi = 0;
-var urlDOM = "http://192.168.2.100:80/"; var Publi = 1;
-//var urlDOM = "http://187.237.98.114:80/"; var Publi = 1;
+//var urlDOM = "http://192.168.2.100:80/"; var Publi = 1;
+var urlDOM = "http://187.237.98.114:80/"; var Publi = 1;
 
 
 $(document).bind("pageinit", function () {
