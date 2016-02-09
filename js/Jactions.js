@@ -522,7 +522,7 @@ function ConsultaStock(Articulo, TipoConsulta, BDescripcion) {
 function VerificaDescripcionArticulo(Codigo) {
     var result = "";
     var Rol = localStorage.getItem('Rl')
-    if (Rol != null && Rol != undefined && Rol >= 0) {
+    if (Rol != null && Rol != undefined && Rol > 0) {
         if (Codigo != "") {
             $.ajax({
                 url: urlDOM + "CS.aspx/ObtenerDescripcionArticulo",
