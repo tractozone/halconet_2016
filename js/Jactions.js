@@ -74,112 +74,112 @@ $(document).bind("pageinit", function () {
 
     $("#botonLogin").bind("click", function (event, ui) {
 
-        //        var datosUsuario = $("#nombredeusuario").val()
-        //        var datosPassword = $("#clave").val()
-        //        var UserName = "";
-        //        UserName = localStorage.getItem('Us')
+                var datosUsuario = $("#nombredeusuario").val()
+                var datosPassword = $("#clave").val()
+                var UserName = "";
+                UserName = localStorage.getItem('Us')
 
-        //        if (Publi == 1) {
-        //            $.mobile.loading('show', {
-        //                text: 'Consultando...',
-        //                textVisible: true,
-        //                theme: 'a',
-        //                html: ""
-        //            });
+                if (Publi == 1) {
+                    $.mobile.loading('show', {
+                        text: 'Consultando...',
+                        textVisible: true,
+                        theme: 'a',
+                        html: ""
+                    });
 
-        //            Ident = /*device.model + "/" +*/device.uuid;
-        //            // recolecta los valores del usuario que se esta logueando
+                    Ident = /*device.model + "/" +*/device.uuid;
+                    // recolecta los valores del usuario que se esta logueando
 
-        //            var devID = localStorage.getItem('ID')
-        //            if (devID == "" || devID == null) {
-        //                //Se consulta al usuario en BD
-        //                $.ajax({
-        //                    url: urlDOM + "CS.aspx/ObtenerUsuario",
-        //                    data: "{ NombreUsuario: '" + datosUsuario + "', Contrasenha:'" + datosPassword + "'}",
-        //                    dataType: "json",
-        //                    type: "POST",
-        //                    contentType: "application/json; charset=utf-8",
-        //                    dataType: "json",
-        //                    success: function (data) {
-        //                        UserName = data.d.NombreUsuario;
-        //                        if (data.d.NombreUsuario != null && data.d.NombreUsuario != "") {
-        //                            localStorage.removeItem("ID");
-        //                            localStorage.removeItem("Us");
-        //                            localStorage.removeItem("Rl");
+                    var devID = localStorage.getItem('ID')
+                    if (devID == "" || devID == null) {
+                        //Se consulta al usuario en BD
+                        $.ajax({
+                            url: urlDOM + "CS.aspx/ObtenerUsuario",
+                            data: "{ NombreUsuario: '" + datosUsuario + "', Contrasenha:'" + datosPassword + "'}",
+                            dataType: "json",
+                            type: "POST",
+                            contentType: "application/json; charset=utf-8",
+                            dataType: "json",
+                            success: function (data) {
+                                UserName = data.d.NombreUsuario;
+                                if (data.d.NombreUsuario != null && data.d.NombreUsuario != "") {
+                                    localStorage.removeItem("ID");
+                                    localStorage.removeItem("Us");
+                                    localStorage.removeItem("Rl");
 
-        //                            localStorage.setItem("ID", Ident);
-        //                            localStorage.setItem("Us", UserName);
-        //                            localStorage.setItem("Rl", data.d.Rol);
-        //                            
-        //                            $.mobile.changePage("index.html")
-        //                            $.mobile.loading("hide");
-        //                           
-        //                        }
-        //                        else {
+                                    localStorage.setItem("ID", Ident);
+                                    localStorage.setItem("Us", UserName);
+                                    localStorage.setItem("Rl", data.d.Rol);
+                                    
+                                    $.mobile.changePage("index.html")
+                                    $.mobile.loading("hide");
+                                   
+                                }
+                                else {
 
-        //                            alert("Usuario o contraseña invalida");
-        //                            $.mobile.loading("hide");
-        //                        }
-        //                    }
-        //                });
-        //            }
-        //            else if (username == Ident) {                
-        //                $.mobile.changePage("index.html")
-        //                $.mobile.loading("hide");
-        //            }
-        //        }
-        //        else {
-        //            //es en aplic de escritorio solo validar el usuario
-        //            if (UserName == datosUsuario) {
-        //                //Se consulta al usuario en BD
-        //                $.ajax({
-        //                    url: urlDOM + "CS.aspx/ObtenerUsuario",
-        //                    data: "{ NombreUsuario: '" + datosUsuario + "', Contrasenha:'" + datosPassword + "'}",
-        //                    dataType: "json",
-        //                    type: "POST",
-        //                    contentType: "application/json; charset=utf-8",
-        //                    dataType: "json",
-        //                    success: function (data) {
-        //                        UserName = data.d.NombreUsuario;
-        //                        if (data.d.NombreUsuario != null && data.d.NombreUsuario != "") {
-        //                            localStorage.removeItem("ID");
-        //                            localStorage.removeItem("Us");
-        //                            localStorage.removeItem("Rl");
+                                    alert("Usuario o contraseña invalida");
+                                    $.mobile.loading("hide");
+                                }
+                            }
+                        });
+                    }
+                    else if (username == Ident) {                
+                        $.mobile.changePage("index.html")
+                        $.mobile.loading("hide");
+                    }
+                }
+                else {
+                    //es en aplic de escritorio solo validar el usuario
+                    if (UserName == datosUsuario) {
+                        //Se consulta al usuario en BD
+                        $.ajax({
+                            url: urlDOM + "CS.aspx/ObtenerUsuario",
+                            data: "{ NombreUsuario: '" + datosUsuario + "', Contrasenha:'" + datosPassword + "'}",
+                            dataType: "json",
+                            type: "POST",
+                            contentType: "application/json; charset=utf-8",
+                            dataType: "json",
+                            success: function (data) {
+                                UserName = data.d.NombreUsuario;
+                                if (data.d.NombreUsuario != null && data.d.NombreUsuario != "") {
+                                    localStorage.removeItem("ID");
+                                    localStorage.removeItem("Us");
+                                    localStorage.removeItem("Rl");
 
-        //                            localStorage.setItem("ID", Ident);
-        //                            localStorage.setItem("Us", UserName);
-        //                            localStorage.setItem("Rl", data.d.Rol);
+                                    localStorage.setItem("ID", Ident);
+                                    localStorage.setItem("Us", UserName);
+                                    localStorage.setItem("Rl", data.d.Rol);
 
-        //                            location.href = 'index.html';
-        //                        }
-        //                        else {
-        //                            alert("Usuario o contraseña invalida");
-        //                        }
-        //                    }
-        //                });
-        //            }
-        //            else if (UserName != null) {
-        //                location.href = 'index.html';
-        //            }                      
-        //        }
-        //        return false;
-        alert(urlDOM);
-        $.ajax({
-            url: urlDOM + "CS.aspx/ObtenerMensaje",
-            data: "{ Opcion: " + 1 + "}",
-            dataType: "json",
-            type: "POST",
-            contentType: "application/json; charset=utf-8",
-            dataType: "json",
-            success: function (data) {
-                alert(data.d);
-            },
-            error: function (xhr, status, error) {
-                alert(status);
-            },
-            dataType: 'text'
-        });
-        return false;
+                                    location.href = 'index.html';
+                                }
+                                else {
+                                    alert("Usuario o contraseña invalida");
+                                }
+                            }
+                        });
+                    }
+                    else if (UserName != null) {
+                        location.href = 'index.html';
+                    }                      
+                }
+                return false;
+//        alert(urlDOM);
+//        $.ajax({
+//            url: urlDOM + "CS.aspx/ObtenerMensaje",
+//            data: "{ Opcion: " + 1 + "}",
+//            dataType: "json",
+//            type: "POST",
+//            contentType: "application/json; charset=utf-8",
+//            dataType: "json",
+//            success: function (data) {
+//                alert(data);
+//            },
+//            error: function (xhr, status, error) {
+//                alert(status);
+//            },
+//            dataType: 'text'
+//        });
+        //return false;
     });
 
 
