@@ -50,6 +50,10 @@
                       transition: "slide"
                   });
               }
+              else {
+                  var User = localStorage.getItem('Us');
+                  $("#lblUsuario").text(User);
+              }
 ////              $.mobile.changePage("login.html", {
 ////                  reloadPage: true,
 ////                  transition: "slide"
@@ -209,7 +213,19 @@
 
     </div>
     
+    <footer data-role="footer" data-position="fixed" id="footer" style="display:block">
+        <div id="Div12" class="ui-grid-b">
+                <div class="ui-block-a">
+                    <label>Usuario:</label>
+                </div>
+                <div id ="Div13" class="ui-block-b">
+                    <label id ="lblUsuario"></label>
+                </div>            
+         </div>
+    </footer>
     <script type="text/javascript" src="js/Jactions.js"></script>
     </div>
+    
 </body>
+    
 </html>

@@ -604,30 +604,35 @@ function MustraSegunRol() {
         $('#CalUtil').css('display', 'none');
         $('#LstPrice').css('display', 'none');
         $('#LstStock').css('display', 'none');
+        //$('#footer').css('display', 'none');
     }
     else if (Rol == 1) {
         $('#DescMax').css('display', 'none');
         $('#CalUtil').css('display', 'block');
         $('#LstPrice').css('display', 'block');
         $('#LstStock').css('display', 'block');
+        //$('#footer').css('display', 'block');
     }
     else if (Rol == 2) {
         $('#DescMax').css('display', 'none');
         $('#CalUtil').css('display', 'block');
         $('#LstPrice').css('display', 'block');
         $('#LstStock').css('display', 'block');
+        //$('#footer').css('display', 'block');
     }
     else if (Rol == 3) {
         $('#DescMax').css('display', 'none');
         $('#CalUtil').css('display', 'none');
         $('#LstPrice').css('display', 'block');
         $('#LstStock').css('display', 'block');
+        //$('#footer').css('display', 'block');
     }
     else if (Rol == 4) {
         $('#DescMax').css('display', 'none');
         $('#CalUtil').css('display', 'none');
         $('#LstPrice').css('display', 'none');
         $('#LstStock').css('display', 'none');
+        //$('#footer').css('display', 'none');
     }
 }
 
