@@ -521,38 +521,39 @@ function ConsultaStock(Articulo, TipoConsulta, BDescripcion) {
 
 function VerificaDescripcionArticulo(Codigo) {
     var result = "";
-    
-    if (Codigo != "") {
-        $.ajax({
-            url: urlDOM + "CS.aspx/ObtenerDescripcionArticulo",
-            data: "{ TipoConsulta: " + 9 + ", CodArticulo:'" + Codigo + "'}",
-            dataType: "json",
-            type: "POST",
-            contentType: "application/json; charset=utf-8",
-            success: function (response) {
-                result = response.d;
-                if (result != "") {
-                    $('#idInformacion').css('display', 'block');
-                    $("#sDescripcionArticulo").text(result);
-                    ConsultaListaPrecios(Codigo, 3, 0);
-                    ConsultaStock(Codigo, 5, 0);
-                    MustraSegunRol();
-                    if (Publi == 1) {
-                        $.mobile.loading("hide");
+    var Rol = localStorage.getItem('Rl')
+    if (Rol != null && Rol != undefined && Rol >= 0) {
+        if (Codigo != "") {
+            $.ajax({
+                url: urlDOM + "CS.aspx/ObtenerDescripcionArticulo",
+                data: "{ TipoConsulta: " + 9 + ", CodArticulo:'" + Codigo + "'}",
+                dataType: "json",
+                type: "POST",
+                contentType: "application/json; charset=utf-8",
+                success: function (response) {
+                    result = response.d;
+                    if (result != "") {
+                        $("#sDescripcionArticulo").text(result);
+                        MustraSegunRol();
+                        ConsultaListaPrecios(Codigo, 3, 0);
+                        ConsultaStock(Codigo, 5, 0);
+                        if (Publi == 1) {
+                            $.mobile.loading("hide");
+                        }
+                    }
+                    else {
+                        Mensaje("No existe ningun articulo con el código especificado", "HalcoNET", "Aceptar");
+                        LimpiaCodArtNoExistente();
+                        $('#idInformacion').css('display', 'none');
+
                     }
                 }
-                else {
-                    Mensaje("No existe ningun articulo con el código especificado", "HalcoNET", "Aceptar");
-                    LimpiaCodArtNoExistente();
-                    $('#idInformacion').css('display', 'none');
-
-                }
-            }
-        });
+            });
+        }
+        else {
+            Mensaje("Debe especificar un código de articulo", "HalcoNET", "Aceptar");
+        }
     }
-    else {
-        Mensaje("Debe especificar un código de articulo", "HalcoNET", "Aceptar");        
-    }   
 }
 
 
@@ -573,6 +574,8 @@ function LimpiaCodArtNoExistente() {
     $('#idInformacion').css('display', 'none');
     $('#CalUtil').css('display', 'none');
     $('#DescMax').css('display', 'none');
+    $('#LstPrice').css('display', 'none');
+    $('#LstStock').css('display', 'none');
     
 }
 
@@ -588,14 +591,38 @@ function Mensaje(TextMensaje, Titulo, Boton) {
 }
 
 function MustraSegunRol() {
+    
+    $('#idInformacion').css('display', 'block');
     var Rol = localStorage.getItem('Rl')
-    if (Rol == 1) {
-        $('#DescMax').css('display', 'block');
-        $('#CalUtil').css('display', 'block');
-    }
-    else if (Rol == 2 || Rol == 3) {
+    if (Rol == null || Rol == undefined || Rol ==0) {
         $('#DescMax').css('display', 'none');
         $('#CalUtil').css('display', 'none');
+        $('#LstPrice').css('display', 'none');
+        $('#LstStock').css('display', 'none');
+    }
+    else if (Rol == 1) {
+        $('#DescMax').css('display', 'none');
+        $('#CalUtil').css('display', 'block');
+        $('#LstPrice').css('display', 'block');
+        $('#LstStock').css('display', 'block');
+    }
+    else if (Rol == 2) {
+        $('#DescMax').css('display', 'none');
+        $('#CalUtil').css('display', 'block');
+        $('#LstPrice').css('display', 'block');
+        $('#LstStock').css('display', 'block');
+    }
+    else if (Rol == 3) {
+        $('#DescMax').css('display', 'none');
+        $('#CalUtil').css('display', 'none');
+        $('#LstPrice').css('display', 'block');
+        $('#LstStock').css('display', 'block');
+    }
+    else if (Rol == 4) {
+        $('#DescMax').css('display', 'none');
+        $('#CalUtil').css('display', 'none');
+        $('#LstPrice').css('display', 'none');
+        $('#LstStock').css('display', 'none');
     }
 }
 
