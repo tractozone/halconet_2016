@@ -282,43 +282,44 @@ $(document).bind("pageinit", function () {
                 //Se valida que el monto de porcentaje de
                 if (ValidaPorcentaje(mon) == false) {
                     Mensaje("No puede aplicar un porcejante por debajo del porcentaje especificado", "HalcoNet", "Aceptar");
-                    return;
                 }
-                var code = $("#txtItemCode").val();
-                var TipoMoneda = -1;
-                var TipoConsulta = -1;
-                if ($('#rbtPesos').is(':checked')) {
-                    TipoMoneda = 1;
-                    TipoConsulta = 1;
-                }
-                if ($('#rbtDolares').is(':checked')) {
-                    TipoMoneda = 2;
-                    TipoConsulta = 2;
-                }
-                if (mon != "") {
-                    if (Publi == 1) {
-                        $.mobile.loading('show', {
-                            text: 'Calculando...',
-                            textVisible: true,
-                            theme: 'a',
-                            html: ""
+                else {
+                    var code = $("#txtItemCode").val();
+                    var TipoMoneda = -1;
+                    var TipoConsulta = -1;
+                    if ($('#rbtPesos').is(':checked')) {
+                        TipoMoneda = 1;
+                        TipoConsulta = 1;
+                    }
+                    if ($('#rbtDolares').is(':checked')) {
+                        TipoMoneda = 2;
+                        TipoConsulta = 2;
+                    }
+                    if (mon != "") {
+                        if (Publi == 1) {
+                            $.mobile.loading('show', {
+                                text: 'Calculando...',
+                                textVisible: true,
+                                theme: 'a',
+                                html: ""
+                            });
+                        }
+                        //Se llena la tabla de precios
+                        $.ajax({
+                            url: urlDOM + "CS.aspx/CalculaUtilidadPorciento",
+                            data: "{ TipoConsulta: " + TipoConsulta + ", DescripArticulo: '" + code + "'" + ", TipoMoneda: " + TipoMoneda + ", Monto: '" + mon + "'" + ", BDescripcion:" + 0 + "}",
+                            dataType: "json",
+                            type: "POST",
+                            contentType: "application/json; charset=utf-8",
+                            dataType: "json",
+                            success: function (data) {
+                                $("#txtPrecio").val(data.d);
+                                if (Publi == 1) {
+                                    $.mobile.loading('hide');
+                                }
+                            }
                         });
                     }
-                    //Se llena la tabla de precios
-                    $.ajax({
-                        url: urlDOM + "CS.aspx/CalculaUtilidadPorciento",
-                        data: "{ TipoConsulta: " + TipoConsulta + ", DescripArticulo: '" + code + "'" + ", TipoMoneda: " + TipoMoneda + ", Monto: '" + mon + "'" + ", BDescripcion:" + 0 + "}",
-                        dataType: "json",
-                        type: "POST",
-                        contentType: "application/json; charset=utf-8",
-                        dataType: "json",
-                        success: function (data) {
-                            $("#txtPrecio").val(data.d);
-                            if (Publi == 1) {
-                                $.mobile.loading('hide');
-                            }
-                        }
-                    });
                 }
             }
             else {
@@ -381,7 +382,7 @@ $(document).bind("pageinit", function () {
         }
     });
 
-});                                                                                   //cierre de página
+});                                                                                    //cierre de página
 
 
 
