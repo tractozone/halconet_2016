@@ -257,9 +257,10 @@ $(document).bind("pageinit", function () {
                                         $("#txtUtilidad").val(data.d);
                                     else {
                                         if (Publi == 1) {
-                                            navigator.notification.alert("Es mejor regalar el producto, que generar una utilidad por debajo del precio especificado..",
-                                            false, "HalcoNet", "Aceptar");
-                                            $.mobile.loading("hide");
+                                            //$.mobile.loading("hide");
+                                            navigator.notification.alert('Es mejor regalar el producto, que generar una utilidad por debajo del precio especificado..',
+                                            alertDismissed, 'HalcoNet', 'Aceptar');
+                                            
                                         }
                                         else {
                                             alert("Es mejor regalar el producto, que generar una utilidad por debajo del precio especificado..");
@@ -302,9 +303,10 @@ $(document).bind("pageinit", function () {
                 var Rol = localStorage.getItem('Rl');
                 if (mon < 13 && Rol != 1) {
                     if (Publi == 1) {
-                        navigator.notification.alert("Es mejor regalar el producto, que generar un precio por debajo de la utilidad especificada..",
-                                            false, "HalcoNet", "Aceptar");
-                        $.mobile.loading("hide");
+                        //$.mobile.loading("hide");
+                        navigator.notification.alert('Es mejor regalar el producto, que generar un precio por debajo de la utilidad especificada..',
+                                            alertDismissed, 'HalcoNet', 'Aceptar');
+                        
                     }
                     else {
                         alert("Es mejor regalar el producto, que generar una utilidad por debajo del precio especificado..");
@@ -691,4 +693,8 @@ function ValidaPorcentaje(monto) {
     if (monto < 13 && Rol > 1) {
         return false;
     }
+}
+
+function alertDismissed() {
+    // hacer algo aquÃ­
 }
