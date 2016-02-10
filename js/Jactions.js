@@ -39,8 +39,7 @@ $(document).bind("pageinit", function () {
     });
 
     $("#A1").bind("click", function (event, ui) {
-        navigator.notification.alert('Hola mundo..', alertDismissed, 'HalcoNet', 'Aceptar');
-        return false;
+        alert("Hola Mundo");
     });
 
     $("#btnSalir").bind("click", function (event, ui) {
@@ -415,7 +414,7 @@ $(document).bind("pageinit", function () {
         }
     });
 
-});                                                                                            //cierre de página
+});                                                                                             //cierre de página
 
 
 
