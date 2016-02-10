@@ -40,6 +40,7 @@ $(document).bind("pageinit", function () {
 
     $("#A1").bind("click", function (event, ui) {
         navigator.notification.alert('Hola mundo..', alertDismissed, 'HalcoNet', 'Aceptar');
+        return false;
     });
 
     $("#btnSalir").bind("click", function (event, ui) {
@@ -264,7 +265,7 @@ $(document).bind("pageinit", function () {
                                             $.mobile.loading("hide");
                                             navigator.notification.alert('Es mejor regalar el producto, que generar una utilidad por debajo del precio especificado..',
                                             alertDismissed, 'HalcoNet', 'Aceptar');
-                                            
+
                                         }
                                         else {
                                             alert("Es mejor regalar el producto, que generar una utilidad por debajo del precio especificado..");
@@ -414,7 +415,7 @@ $(document).bind("pageinit", function () {
         }
     });
 
-});                                                                                           //cierre de página
+});                                                                                            //cierre de página
 
 
 
