@@ -524,6 +524,12 @@ public partial class _Default : System.Web.UI.Page
         public string USD { get; set; } 
     }
 
+    public class AUtilidad
+    {
+        public decimal Monto { get; set; }
+        public string Mensaje { get; set; }
+    }
+
     public class Stocks
     {
         public string Almacen { get; set; }

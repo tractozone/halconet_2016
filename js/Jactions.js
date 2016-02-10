@@ -38,9 +38,7 @@ $(document).bind("pageinit", function () {
 
     });
 
-    $("#A1").bind("click", function (event, ui) {
-        alert("Hola Mundo");
-    });
+   
 
     $("#btnSalir").bind("click", function (event, ui) {
         localStorage.removeItem("ID");
@@ -260,10 +258,10 @@ $(document).bind("pageinit", function () {
                                     if (data.d >= 13)
                                         $("#txtUtilidad").val(data.d);
                                     else {
-                                        if (Publi == 1) {
-                                            $.mobile.loading("hide");
+                                        if (Publi == 1) {                                            
                                             navigator.notification.alert('Es mejor regalar el producto, que generar una utilidad por debajo del precio especificado..',
                                             alertDismissed, 'HalcoNet', 'Aceptar');
+                                            $.mobile.loading("hide");
 
                                         }
                                         else {
@@ -307,12 +305,13 @@ $(document).bind("pageinit", function () {
                 var Rol = localStorage.getItem('Rl');
                 if (mon < 13 && Rol != 1) {
                     if (Publi == 1) {
-                        $.mobile.loading("hide");
+                        
                         navigator.notification.alert('Es mejor regalar el producto, que generar un precio por debajo de la utilidad especificada..',
                                             alertDismissed, 'HalcoNet', 'Aceptar');
+                        $.mobile.loading("hide");
                     }
                     else {
-                        alert("Es mejor regalar el producto, que generar una utilidad por debajo del precio especificado..");
+                        alert("Es mejor regalar el producto, que generar un precio por debajo de la utilidad especificada..");
                     }
                 }
                 else {

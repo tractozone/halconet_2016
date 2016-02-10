@@ -3,7 +3,7 @@
         xmlns:gap   = "http://phonegap.com/ns/1.0"
         id          = "Halconet_2016"
         version     = "1.0.0"
-        versionCode = "3" >
+        versionCode = "4" >
         <icon src="img/icono_halconetapp.png" />
 
         <!-- versionCode is optional and Android only -->
