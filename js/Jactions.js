@@ -38,6 +38,10 @@ $(document).bind("pageinit", function () {
 
     });
 
+    $("#A1").bind("click", function (event, ui) {
+        navigator.notification.alert('Hola mundo..', alertDismissed, 'HalcoNet', 'Aceptar');
+    });
+
     $("#btnSalir").bind("click", function (event, ui) {
         localStorage.removeItem("ID");
         localStorage.removeItem("Us");
@@ -257,7 +261,7 @@ $(document).bind("pageinit", function () {
                                         $("#txtUtilidad").val(data.d);
                                     else {
                                         if (Publi == 1) {
-                                            //$.mobile.loading("hide");
+                                            $.mobile.loading("hide");
                                             navigator.notification.alert('Es mejor regalar el producto, que generar una utilidad por debajo del precio especificado..',
                                             alertDismissed, 'HalcoNet', 'Aceptar');
                                             
@@ -303,10 +307,9 @@ $(document).bind("pageinit", function () {
                 var Rol = localStorage.getItem('Rl');
                 if (mon < 13 && Rol != 1) {
                     if (Publi == 1) {
-                        //$.mobile.loading("hide");
+                        $.mobile.loading("hide");
                         navigator.notification.alert('Es mejor regalar el producto, que generar un precio por debajo de la utilidad especificada..',
                                             alertDismissed, 'HalcoNet', 'Aceptar');
-                        
                     }
                     else {
                         alert("Es mejor regalar el producto, que generar una utilidad por debajo del precio especificado..");
