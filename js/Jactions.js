@@ -250,7 +250,18 @@ $(document).bind("pageinit", function () {
                         contentType: "application/json; charset=utf-8",
                         dataType: "json",
                         success: function (data) {
-                            $("#txtUtilidad").val(data.d);
+                            var Rol = localStorage.getItem('Rl')
+                            if (data.d != null && data.d != undefined) {
+                                if (Rol != 1) {
+                                    if (data.d >= 13)
+                                        $("#txtUtilidad").val(data.d);
+                                    else
+                                        Mensaje("Es mejor regalar el producto, que generar una utilidad por debajo del precio especificado..", "HalcoNet", "Aceptar");
+                                }
+                                else {
+                                    $("#txtUtilidad").val(data.d);
+                                }
+                            }
                             if (Publi == 1) {
                                 $.mobile.loading('hide');
                             }
@@ -279,9 +290,9 @@ $(document).bind("pageinit", function () {
         if (CodORNom != "") {
             var mon = $("#txtUtilidad").val();
             if (mon != "") {
-                //Se valida que el monto de porcentaje de
-                if (ValidaPorcentaje(mon) == false) {
-                    Mensaje("No puede aplicar un porcejante por debajo del porcentaje especificado", "HalcoNet", "Aceptar");
+                var Rol = localStorage.getItem('Rl')
+                if (monto < 13 && Rol != 1) {
+                    Mensaje("Es mejor regalar el producto, que generar un precio por debajo de la utilidad especificada..", "HalcoNet", "Aceptar");
                 }
                 else {
                     var code = $("#txtItemCode").val();
@@ -382,7 +393,7 @@ $(document).bind("pageinit", function () {
         }
     });
 
-});                                                                                    //cierre de página
+});                                                                                         //cierre de página
 
 
 
