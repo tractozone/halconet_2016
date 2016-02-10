@@ -258,7 +258,7 @@ $(document).bind("pageinit", function () {
                                     else {
                                         if (Publi == 1) {
                                             navigator.notification.alert("Es mejor regalar el producto, que generar una utilidad por debajo del precio especificado..",
-                                            null, "HalcoNet", "Aceptar");
+                                            false, "HalcoNet", "Aceptar");
                                             $.mobile.loading("hide");
                                         }
                                         else {
@@ -302,8 +302,8 @@ $(document).bind("pageinit", function () {
                 var Rol = localStorage.getItem('Rl');
                 if (mon < 13 && Rol != 1) {
                     if (Publi == 1) {
-                        navigator.notification.alert("Es mejor regalar el producto, que generar una utilidad por debajo del precio especificado..",
-                                            null, "HalcoNet", "Aceptar");
+                        navigator.notification.alert("Es mejor regalar el producto, que generar un precio por debajo de la utilidad especificada..",
+                                            false, "HalcoNet", "Aceptar");
                         $.mobile.loading("hide");
                     }
                     else {
