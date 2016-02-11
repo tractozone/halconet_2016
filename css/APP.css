@@ -27,6 +27,16 @@
 {
     width:37%;  
 }
+#logo
+{
+margin-left: auto;
+margin-right: auto;
+display: block;
+min-width: 0%;
+min-height: 0%;
+max-width: 100%;
+max-height: 100%;
+}
 
 .col-stock
 {
@@ -77,20 +87,15 @@
 .ui-bar-P
 {
     /*border:1px solid #456f9a;*/
-    border:1px solid #E2251D;
+    border:1px solid #ef5a00;
     /*background:#5e87b0;*/
-    background:#E2251D;
+    background:#ef5a00;
     color:#fff;
     font-weight:bold;
     /*text-shadow:0 -1px 1px #254f7a;*/
     text-shadow:0 -1px 1px #E2251D;
-    /*background-image:-webkit-gradient(linear,left top,left bottom,from(#81a8ce),to(#5e87b0));
-    background-image:-webkit-linear-gradient(#81a8ce,#5e87b0);
-    background-image:-moz-linear-gradient(#81a8ce,#5e87b0);
-    background-image:-ms-linear-gradient(#81a8ce,#5e87b0);
-    background-image:-o-linear-gradient(#81a8ce,#5e87b0);
-    background-image:linear-gradient(#81a8ce,#5e87b0)*/
 }
+
 /*
 .ui-bar-b,.ui-bar-b input,.ui-bar-b select,.ui-bar-b textarea,.ui-bar-b button
 {
@@ -242,7 +247,7 @@ table {     font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
 */
 th  
 {
-    border-top: 4px solid #E2251D;
+    border-top: 4px solid #ef5a00;
     background: #c7c7c7;
     /*
         font-size: 13px;     font-weight: normal;     padding: 8px;     
