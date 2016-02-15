@@ -5,7 +5,7 @@
         version     = "1.0.2"
         versionCode = "6" >
         <icon src="img/icono_halconetapp.png" />
-        <splash src="img/icono_halconetapp.png"/>
+        <!--<splash src="img/icono_halconetapp.png"/>-->
         
       <!-- versionCode is optional and Android only -->
 
