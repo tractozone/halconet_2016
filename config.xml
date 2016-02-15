@@ -2,18 +2,19 @@
     <widget xmlns = "http://www.w3.org/ns/widgets"
         xmlns:gap   = "http://phonegap.com/ns/1.0"
         id          = "Halconet_2016"
-        version     = "1.0.1"
-        versionCode = "5" >
+        version     = "1.0.2"
+        versionCode = "6" >
         <icon src="img/icono_halconetapp.png" />
-
-        <!-- versionCode is optional and Android only -->
+        <splash src="img/icono_halconetapp.png"/>
+        
+      <!-- versionCode is optional and Android only -->
 
         <preference name="phonegap-version" value="3.7.0" />
 
-        <name>HalcoNet_2016</name>
-
+        <name>HalcoNet</name>
+      
         <description>
-            Aplicación HalcoNet_2016 
+            Aplicación HalcoNet
         </description>
 
         <author href="http://www.tractozone.com.mx" email="contacto@tractozone.com.mx">
